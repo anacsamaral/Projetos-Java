@@ -6,7 +6,7 @@ public class ExercicioII {
         int matriz [][] = new int[TL][TL];
 
         Scanner lerMatriz = new Scanner(System.in);
-        System.out.println("Digite os valores da matriz 4 x 4:\n");
+        System.out.printf("Digite os valores da matriz %dx%d:\n", TL, TL);
 
         for(int i = 0; i < matriz.length; i++)
             for(int j = 0; j < matriz[i].length; j++)
