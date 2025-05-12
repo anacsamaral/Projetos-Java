@@ -22,9 +22,8 @@ public class ExercicioI {
 
             // que palavra você quer encontrar no arquivo
             Scanner lerPalavra = new Scanner(System.in);
-            System.out.print("Que palavra você quer encontrar no arquivo?: ");
-            String palavra = lerPalavra.next();
-            System.out.println("Ok, você deseja encontrar arquivos que tenham a palavra "+"'"+palavra+"'.");
+            String palavra = JOptionPane.showInputDialog(null, "Que palavra você quer encontrar?");
+            System.out.println("Ok, você deseja encontrar arquivos que tenham a palavra '" + palavra + "'.");
 
             String[] extensoesValidas = {".java", ".cpp", ".py", ".js"}; // extensoes permitidas
             String[] arquivosComPalavra = new String[arquivos.length]; // armazena arquivos que tem a palavra
