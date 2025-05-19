@@ -1,0 +1,119 @@
+1905;O Feiticeiro de Oz
+1906;O Último Guto
+1907;O Fantasma da Ópera
+1908;O Gato de Botas
+1909;A Última Dama
+1910;O Filho do Espírito Santo
+1911;O Grande Ladrão
+1912;Os Cosmonautas
+1913;A Ofensiva
+1914;O Grande Ladrão
+1915;O Vovô
+1916;O Apóstolo
+1917;A Guerra dos Mundos
+1918;O Terceiro Ladrão
+1919;O Lobo dos Mares
+1920;O Homem Invisível
+1921;O Grande Ditador
+1922;A Última Donzela
+1923;O Mágico de Oz
+1924;O Corsário
+1925;A Estrada da Vida
+1926;O Garoto
+1927;O Homem das Rãs
+1928;O Sétimo Selo
+1929;O General
+1930;O Último dos Moicanos
+1931;Drácula
+1932;Vampiros de Almas
+1933;King Kong
+1934;A Noite dos Mortos-Vivos
+1935;O Rei do Jazz
+1936;O Filhote da Águia
+1937;Branca de Neve e os Sete Anões
+1938;A Dama de Shangai
+1939;O Mágico de Oz
+1940;Aconteceu Naquela Noite
+1941;Cidadão Kane
+1942;Casablanca
+1943;O Sétimo Selo
+1944;A Grande Ilusão
+1945;O Melhor Lugar do Mundo
+1946;A Estrada da Vida
+1947;A Canção da vitória
+1948;Casablanca
+1949;A Morte Dela
+1950;O Falcão Maltês
+1951;O Dia da Independência
+1952;Cantando na Chuva
+1953;O Espírito da Colmeia
+1954;A Corda
+1955;O Fabuloso Destino de Jack
+1956;O Homem Que Sabia Demais
+1957;Uma Rua Chamada Pecado
+1958;Um Corpo que Cai
+1959;Festa do Amor
+1960;Psicose
+1961;West Side Story
+1962;Lawrence da Arábia
+1963;A Noviça Rebelde
+1964;Mary Poppins
+1965;Dr. Estranhoamor
+1966;A História Sem Fim
+1967;O Graduado
+1968;O Estranho Mundo de Jack
+1969;Easy Rider
+1970;M*A*S*H
+1971;Assim Caminha a Humanidade
+1972;Laranja Mecânica
+1973;O Exorcista
+1974;O Poderoso Chefão Parte II
+1975;Tubarão
+1976;Rocky: Um Lutador
+1977;Star Wars: Episódio IV - Uma Nova Esperança
+1978;Halloween
+1979;Alien: O Oitavo Passageiro
+1980;O Iluminado
+1981;Superman
+1982;E.T. - O Extraterrestre
+1983;Coração Valente
+1984;Os Gremlins
+1985;De Volta para o Futuro
+1986;Top Gun: Ases Indomáveis
+1987;O Último dos Moicanos
+1988;O Feitiço do Tempo
+1989;O Pequeno Grande Homem
+1990;Dança com Lobos
+1991;O Poderoso Chefão Parte III
+1992;O Silêncio dos Inocentes
+1993;Uma Linda Mulher
+1994;O Rei Leão
+1995;Toy Story
+1996;O Paciente Inglês
+1997;O Titanic
+1998;A Vida É Bela
+1999;Matriz
+2000;X-Men
+2001;Harry Potter e a Pedra Filosofal
+2002;Star Wars: Episódio II - Ataque dos Clones
+2003;O Senhor dos Anéis: O Retorno do Rei
+2004;Harry Potter e o Prisioneiro de Azkaban
+2005;Batman Begins
+2006;O Labirinto do Fauno
+2007;Sino da Noite
+2008;O Senhor dos Anéis: O Retorno do Rei
+2009;Avatar
+2010;A Rede Social
+2011;A Árvore da Vida
+2012;Os Vingadores
+2013;Gravidade
+2014;O Grande Hotel Budapeste
+2015;Mad Max: Estrada da Fúria
+2016;La La Land
+2017;A Forma da Água
+2018;Pantera Negra
+2019;Coringa
+2020;O Último Duelo
+2021;A Vizinhança Chata
+2022;A Batalha dos Mundos
+2023;O Fabuloso Destino de Manuela

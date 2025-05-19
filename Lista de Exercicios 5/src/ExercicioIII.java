@@ -28,7 +28,7 @@ public class ExercicioIII {
 
                 for (int i = 0; i < 6; i++)
                 {
-                    int numero = Integer.parseInt(partes[i + 1]); // pulae a data
+                    int numero = Integer.parseInt(partes[i + 1]); // pular a data
                     numerosSorteio[i] = numero;
                     contagem[numero]++;
                 }

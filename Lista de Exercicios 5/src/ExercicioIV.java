@@ -15,13 +15,15 @@ public class ExercicioIV {
 
         File arquivo = seletorArquivo.getSelectedFile();
 
-        // Escolher onde salvar o HTML
+        // onde salvar o HTML
         JFileChooser seletorDestino = new JFileChooser();
         seletorDestino.setDialogTitle("Escolha onde salvar o arquivo HTML");
         seletorDestino.setSelectedFile(new File("pagina.html"));
-        resultado = seletorDestino.showSaveDialog(null);
+        seletorDestino.showSaveDialog(null);
 
-        if (resultado != JFileChooser.APPROVE_OPTION) {
+        File arquivoSelecionado = seletorDestino.getSelectedFile();
+
+        if (arquivoSelecionado == null || arquivoSelecionado.getPath().isBlank()) {
             System.out.println("Local de salvamento não selecionado.");
             return;
         }
@@ -30,7 +32,7 @@ public class ExercicioIV {
 
         try (
                 BufferedReader leitor = new BufferedReader(new FileReader(arquivo));
-                BufferedWriter escritor = new BufferedWriter(new FileWriter(arquivoHtml))
+                BufferedWriter escritor = new BufferedWriter(new FileWriter(arquivoHtml));
         ) {
             escritor.write("<!DOCTYPE html>\n");
             escritor.write("<html lang=\"pt-br\">\n");
@@ -45,7 +47,7 @@ public class ExercicioIV {
             boolean listaAberta = false;
 
             while ((linha = leitor.readLine()) != null) {
-                linha = linha.trim();
+                    linha = linha.trim(); // trim remove espaco em branco
                 if (!linha.isEmpty() && linha.contains(";")) {
                     String[] partes = linha.split(";", 2);
                     String parteAno = partes[0].trim();
