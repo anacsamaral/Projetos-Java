@@ -1,6 +1,4 @@
 import java.io.RandomAccessFile;
-import java.util.Arrays;
-import java.util.RandomAccess;
 
 public class Aula0505 { // no final da linha é o código 10 da tabela ascii
 //    public static void main(String[] args) { //throws Exception

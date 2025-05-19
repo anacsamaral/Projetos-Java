@@ -1,7 +1,6 @@
 import java.io.RandomAccessFile;
-import java.util.Arrays;
 
-public class Main {
+public class ExemploArquivo {
     // leitura total do arquivo
     public static void main(String[] args) {
         RandomAccessFile arq,arq2;
