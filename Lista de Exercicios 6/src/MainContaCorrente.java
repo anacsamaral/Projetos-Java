@@ -1,6 +1,6 @@
 import javax.swing.JOptionPane;
 
-public class Main {
+public class MainContaCorrente {
     public static void main(String[] args) {
         ContaCorrente conta = new ContaCorrente("12345-6", 1000.0, true, 500.0);
 

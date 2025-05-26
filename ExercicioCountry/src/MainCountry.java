@@ -1,4 +1,4 @@
-public class Main {
+public class MainCountry {
     public static void main(String[] args) {
         Country br;
         br = new Country("Brasil",220000000,54000);
