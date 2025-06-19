@@ -1,0 +1,113 @@
+<html>
+<head>
+<title>ExercicioIV.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #7a7e85;}
+.s4 { color: #6aab73;}
+.s5 { color: #2aacb8;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+ExercicioIV.java</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">javax</span><span class="s2">.</span><span class="s1">swing</span><span class="s2">.*;</span>
+<span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">io</span><span class="s2">.*;</span>
+
+<span class="s0">public class </span><span class="s1">ExercicioIV </span><span class="s2">{</span>
+    <span class="s0">public static void </span><span class="s1">main</span><span class="s2">(</span><span class="s1">String</span><span class="s2">[] </span><span class="s1">args</span><span class="s2">) {</span>
+        <span class="s3">// Escolher o arquivo de entrada (filmes.txt)</span>
+        <span class="s1">JFileChooser seletorArquivo </span><span class="s2">= </span><span class="s0">new </span><span class="s1">JFileChooser</span><span class="s2">();</span>
+        <span class="s1">seletorArquivo</span><span class="s2">.</span><span class="s1">setDialogTitle</span><span class="s2">(</span><span class="s4">&quot;Selecione o arquivo filmes.txt&quot;</span><span class="s2">);</span>
+        <span class="s0">int </span><span class="s1">resultado </span><span class="s2">= </span><span class="s1">seletorArquivo</span><span class="s2">.</span><span class="s1">showOpenDialog</span><span class="s2">(</span><span class="s0">null</span><span class="s2">);</span>
+
+        <span class="s0">if </span><span class="s2">(</span><span class="s1">resultado </span><span class="s2">!= </span><span class="s1">JFileChooser</span><span class="s2">.</span><span class="s1">APPROVE_OPTION</span><span class="s2">) {</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Nenhum arquivo selecionado. Encerrando o programa.&quot;</span><span class="s2">);</span>
+            <span class="s0">return</span><span class="s2">;</span>
+        <span class="s2">}</span>
+
+        <span class="s1">File arquivo </span><span class="s2">= </span><span class="s1">seletorArquivo</span><span class="s2">.</span><span class="s1">getSelectedFile</span><span class="s2">();</span>
+
+        <span class="s3">// onde salvar o HTML</span>
+        <span class="s1">JFileChooser seletorDestino </span><span class="s2">= </span><span class="s0">new </span><span class="s1">JFileChooser</span><span class="s2">();</span>
+        <span class="s1">seletorDestino</span><span class="s2">.</span><span class="s1">setDialogTitle</span><span class="s2">(</span><span class="s4">&quot;Escolha onde salvar o arquivo HTML&quot;</span><span class="s2">);</span>
+        <span class="s1">seletorDestino</span><span class="s2">.</span><span class="s1">setSelectedFile</span><span class="s2">(</span><span class="s0">new </span><span class="s1">File</span><span class="s2">(</span><span class="s4">&quot;pagina.html&quot;</span><span class="s2">));</span>
+        <span class="s1">seletorDestino</span><span class="s2">.</span><span class="s1">showSaveDialog</span><span class="s2">(</span><span class="s0">null</span><span class="s2">);</span>
+
+        <span class="s1">File arquivoSelecionado </span><span class="s2">= </span><span class="s1">seletorDestino</span><span class="s2">.</span><span class="s1">getSelectedFile</span><span class="s2">();</span>
+
+        <span class="s0">if </span><span class="s2">(</span><span class="s1">arquivoSelecionado </span><span class="s2">== </span><span class="s0">null </span><span class="s2">|| </span><span class="s1">arquivoSelecionado</span><span class="s2">.</span><span class="s1">getPath</span><span class="s2">().</span><span class="s1">isBlank</span><span class="s2">()) {</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Local de salvamento não selecionado.&quot;</span><span class="s2">);</span>
+            <span class="s0">return</span><span class="s2">;</span>
+        <span class="s2">}</span>
+
+        <span class="s1">File arquivoHtml </span><span class="s2">= </span><span class="s1">seletorDestino</span><span class="s2">.</span><span class="s1">getSelectedFile</span><span class="s2">();</span>
+
+        <span class="s0">try </span><span class="s2">(</span>
+                <span class="s1">BufferedReader leitor </span><span class="s2">= </span><span class="s0">new </span><span class="s1">BufferedReader</span><span class="s2">(</span><span class="s0">new </span><span class="s1">FileReader</span><span class="s2">(</span><span class="s1">arquivo</span><span class="s2">));</span>
+                <span class="s1">BufferedWriter escritor </span><span class="s2">= </span><span class="s0">new </span><span class="s1">BufferedWriter</span><span class="s2">(</span><span class="s0">new </span><span class="s1">FileWriter</span><span class="s2">(</span><span class="s1">arquivoHtml</span><span class="s2">));</span>
+        <span class="s2">) {</span>
+            <span class="s1">escritor</span><span class="s2">.</span><span class="s1">write</span><span class="s2">(</span><span class="s4">&quot;&lt;!DOCTYPE html&gt;</span><span class="s0">\n</span><span class="s4">&quot;</span><span class="s2">);</span>
+            <span class="s1">escritor</span><span class="s2">.</span><span class="s1">write</span><span class="s2">(</span><span class="s4">&quot;&lt;html lang=</span><span class="s0">\&quot;</span><span class="s4">pt-br</span><span class="s0">\&quot;</span><span class="s4">&gt;</span><span class="s0">\n</span><span class="s4">&quot;</span><span class="s2">);</span>
+            <span class="s1">escritor</span><span class="s2">.</span><span class="s1">write</span><span class="s2">(</span><span class="s4">&quot;&lt;head&gt;</span><span class="s0">\n</span><span class="s4">&quot;</span><span class="s2">);</span>
+            <span class="s1">escritor</span><span class="s2">.</span><span class="s1">write</span><span class="s2">(</span><span class="s4">&quot;&lt;meta charset=</span><span class="s0">\&quot;</span><span class="s4">UTF-8</span><span class="s0">\&quot;</span><span class="s4">&gt;</span><span class="s0">\n</span><span class="s4">&quot;</span><span class="s2">);</span>
+            <span class="s1">escritor</span><span class="s2">.</span><span class="s1">write</span><span class="s2">(</span><span class="s4">&quot;&lt;title&gt;Top Filmes&lt;/title&gt;</span><span class="s0">\n</span><span class="s4">&quot;</span><span class="s2">);</span>
+            <span class="s1">escritor</span><span class="s2">.</span><span class="s1">write</span><span class="s2">(</span><span class="s4">&quot;&lt;/head&gt;</span><span class="s0">\n</span><span class="s4">&quot;</span><span class="s2">);</span>
+            <span class="s1">escritor</span><span class="s2">.</span><span class="s1">write</span><span class="s2">(</span><span class="s4">&quot;&lt;body&gt;</span><span class="s0">\n</span><span class="s4">&quot;</span><span class="s2">);</span>
+
+            <span class="s1">String linha</span><span class="s2">;</span>
+            <span class="s1">String decadaAtual </span><span class="s2">= </span><span class="s4">&quot;&quot;</span><span class="s2">;</span>
+            <span class="s0">boolean </span><span class="s1">listaAberta </span><span class="s2">= </span><span class="s0">false</span><span class="s2">;</span>
+
+            <span class="s0">while </span><span class="s2">((</span><span class="s1">linha </span><span class="s2">= </span><span class="s1">leitor</span><span class="s2">.</span><span class="s1">readLine</span><span class="s2">()) != </span><span class="s0">null</span><span class="s2">) {</span>
+                    <span class="s1">linha </span><span class="s2">= </span><span class="s1">linha</span><span class="s2">.</span><span class="s1">trim</span><span class="s2">(); </span><span class="s3">// trim remove espaco em branco</span>
+                <span class="s0">if </span><span class="s2">(!</span><span class="s1">linha</span><span class="s2">.</span><span class="s1">isEmpty</span><span class="s2">() &amp;&amp; </span><span class="s1">linha</span><span class="s2">.</span><span class="s1">contains</span><span class="s2">(</span><span class="s4">&quot;;&quot;</span><span class="s2">)) {</span>
+                    <span class="s1">String</span><span class="s2">[] </span><span class="s1">partes </span><span class="s2">= </span><span class="s1">linha</span><span class="s2">.</span><span class="s1">split</span><span class="s2">(</span><span class="s4">&quot;;&quot;</span><span class="s2">, </span><span class="s5">2</span><span class="s2">);</span>
+                    <span class="s1">String parteAno </span><span class="s2">= </span><span class="s1">partes</span><span class="s2">[</span><span class="s5">0</span><span class="s2">].</span><span class="s1">trim</span><span class="s2">();</span>
+                    <span class="s1">String titulo </span><span class="s2">= </span><span class="s1">partes</span><span class="s2">[</span><span class="s5">1</span><span class="s2">].</span><span class="s1">trim</span><span class="s2">();</span>
+
+                    <span class="s0">try </span><span class="s2">{</span>
+                        <span class="s0">int </span><span class="s1">ano </span><span class="s2">= </span><span class="s1">Integer</span><span class="s2">.</span><span class="s1">parseInt</span><span class="s2">(</span><span class="s1">parteAno</span><span class="s2">);</span>
+                        <span class="s0">int </span><span class="s1">decadaInicio </span><span class="s2">= (</span><span class="s1">ano </span><span class="s2">/ </span><span class="s5">10</span><span class="s2">) * </span><span class="s5">10</span><span class="s2">;</span>
+                        <span class="s0">int </span><span class="s1">decadaFim </span><span class="s2">= </span><span class="s1">decadaInicio </span><span class="s2">+ </span><span class="s5">9</span><span class="s2">;</span>
+                        <span class="s1">String decada </span><span class="s2">= </span><span class="s1">decadaInicio </span><span class="s2">+ </span><span class="s4">&quot;-&quot; </span><span class="s2">+ </span><span class="s1">decadaFim</span><span class="s2">;</span>
+
+                        <span class="s0">if </span><span class="s2">(!</span><span class="s1">decada</span><span class="s2">.</span><span class="s1">equals</span><span class="s2">(</span><span class="s1">decadaAtual</span><span class="s2">)) {</span>
+                            <span class="s0">if </span><span class="s2">(</span><span class="s1">listaAberta</span><span class="s2">) {</span>
+                                <span class="s1">escritor</span><span class="s2">.</span><span class="s1">write</span><span class="s2">(</span><span class="s4">&quot;&lt;/ul&gt;</span><span class="s0">\n</span><span class="s4">&quot;</span><span class="s2">);</span>
+                            <span class="s2">}</span>
+                            <span class="s1">escritor</span><span class="s2">.</span><span class="s1">write</span><span class="s2">(</span><span class="s4">&quot;&lt;h1&gt;&quot; </span><span class="s2">+ </span><span class="s1">decada </span><span class="s2">+ </span><span class="s4">&quot;&lt;/h1&gt;</span><span class="s0">\n</span><span class="s4">&quot;</span><span class="s2">);</span>
+                            <span class="s1">escritor</span><span class="s2">.</span><span class="s1">write</span><span class="s2">(</span><span class="s4">&quot;&lt;ul&gt;</span><span class="s0">\n</span><span class="s4">&quot;</span><span class="s2">);</span>
+                            <span class="s1">decadaAtual </span><span class="s2">= </span><span class="s1">decada</span><span class="s2">;</span>
+                            <span class="s1">listaAberta </span><span class="s2">= </span><span class="s0">true</span><span class="s2">;</span>
+                        <span class="s2">}</span>
+
+                        <span class="s1">escritor</span><span class="s2">.</span><span class="s1">write</span><span class="s2">(</span><span class="s4">&quot;&lt;li&gt;&quot; </span><span class="s2">+ </span><span class="s1">titulo </span><span class="s2">+ </span><span class="s4">&quot;&lt;/li&gt;</span><span class="s0">\n</span><span class="s4">&quot;</span><span class="s2">);</span>
+                    <span class="s2">} </span><span class="s0">catch </span><span class="s2">(</span><span class="s1">NumberFormatException e</span><span class="s2">) {</span>
+                        <span class="s1">System</span><span class="s2">.</span><span class="s1">err</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Ano inválido na linha: &quot; </span><span class="s2">+ </span><span class="s1">linha</span><span class="s2">);</span>
+                    <span class="s2">}</span>
+                <span class="s2">}</span>
+            <span class="s2">}</span>
+
+            <span class="s0">if </span><span class="s2">(</span><span class="s1">listaAberta</span><span class="s2">) {</span>
+                <span class="s1">escritor</span><span class="s2">.</span><span class="s1">write</span><span class="s2">(</span><span class="s4">&quot;&lt;/ul&gt;</span><span class="s0">\n</span><span class="s4">&quot;</span><span class="s2">);</span>
+            <span class="s2">}</span>
+
+            <span class="s1">escritor</span><span class="s2">.</span><span class="s1">write</span><span class="s2">(</span><span class="s4">&quot;&lt;/body&gt;</span><span class="s0">\n</span><span class="s4">&quot;</span><span class="s2">);</span>
+            <span class="s1">escritor</span><span class="s2">.</span><span class="s1">write</span><span class="s2">(</span><span class="s4">&quot;&lt;/html&gt;</span><span class="s0">\n</span><span class="s4">&quot;</span><span class="s2">);</span>
+
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;HTML gerado com sucesso em: &quot; </span><span class="s2">+ </span><span class="s1">arquivoHtml</span><span class="s2">.</span><span class="s1">getAbsolutePath</span><span class="s2">());</span>
+
+        <span class="s2">} </span><span class="s0">catch </span><span class="s2">(</span><span class="s1">IOException e</span><span class="s2">) {</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">err</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Erro ao processar o arquivo: &quot; </span><span class="s2">+ </span><span class="s1">e</span><span class="s2">.</span><span class="s1">getMessage</span><span class="s2">());</span>
+        <span class="s2">}</span>
+    <span class="s2">}</span>
+<span class="s2">}</span></pre>
+</body>
+</html>

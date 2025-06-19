@@ -11,32 +11,30 @@ public class ContaCorrente {
         this.limite = limite;
     }
 
+    //gets
     public String getNumero() {
         return numero;
     }
-
-    public void setNumero(String numero) {
-        this.numero = numero;
+    public double getLimite() {
+        return limite;
     }
-
     public double getSaldo() {
         return saldo;
     }
 
-    public boolean isEspecial() {
-        return especial;
+    //sets
+    public void setNumero(String numero) {
+        this.numero = numero;
     }
-
     public void setEspecial(boolean especial) {
         this.especial = especial;
     }
-
-    public double getLimite() {
-        return limite;
-    }
-
     public void setLimite(double limite) {
         this.limite = limite;
+    }
+
+    public boolean isEspecial() {
+        return especial;
     }
 
     // sacar

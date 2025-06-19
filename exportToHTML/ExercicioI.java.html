@@ -1,0 +1,96 @@
+<html>
+<head>
+<title>ExercicioI.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #7a7e85;}
+.s4 { color: #6aab73;}
+.s5 { color: #2aacb8;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+ExercicioI.java</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">javax</span><span class="s2">.</span><span class="s1">swing</span><span class="s2">.*;</span>
+<span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">io</span><span class="s2">.</span><span class="s1">BufferedReader</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">io</span><span class="s2">.</span><span class="s1">File</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">io</span><span class="s2">.</span><span class="s1">FileReader</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">util</span><span class="s2">.</span><span class="s1">Scanner</span><span class="s2">;</span>
+
+<span class="s0">public class </span><span class="s1">ExercicioI </span><span class="s2">{</span>
+    <span class="s0">public static void </span><span class="s1">main</span><span class="s2">(</span><span class="s1">String</span><span class="s2">[] </span><span class="s1">args</span><span class="s2">) {</span>
+        <span class="s3">// qual pasta quer analisar</span>
+        <span class="s1">JFileChooser jFileChooser </span><span class="s2">= </span><span class="s0">new </span><span class="s1">JFileChooser</span><span class="s2">(</span><span class="s4">&quot;c:</span><span class="s0">\\</span><span class="s4">&quot;</span><span class="s2">);</span>
+        <span class="s1">jFileChooser</span><span class="s2">.</span><span class="s1">setDialogTitle</span><span class="s2">(</span><span class="s4">&quot;Escolha uma pasta:&quot;</span><span class="s2">);</span>
+        <span class="s1">jFileChooser</span><span class="s2">.</span><span class="s1">showOpenDialog</span><span class="s2">(</span><span class="s0">null</span><span class="s2">);</span>
+        <span class="s1">String pasta </span><span class="s2">= </span><span class="s1">jFileChooser</span><span class="s2">.</span><span class="s1">getCurrentDirectory</span><span class="s2">().</span><span class="s1">getAbsolutePath</span><span class="s2">();</span>
+        <span class="s1">File folder </span><span class="s2">= </span><span class="s0">new </span><span class="s1">File</span><span class="s2">(</span><span class="s1">pasta</span><span class="s2">);</span>
+
+        <span class="s3">// verifica se é diretorio</span>
+        <span class="s0">if</span><span class="s2">(</span><span class="s1">folder</span><span class="s2">.</span><span class="s1">isDirectory</span><span class="s2">()){</span>
+            <span class="s1">File</span><span class="s2">[] </span><span class="s1">arquivos </span><span class="s2">= </span><span class="s1">folder</span><span class="s2">.</span><span class="s1">listFiles</span><span class="s2">();</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Arquivos da pasta selecionada:&quot;</span><span class="s2">);</span>
+            <span class="s0">for</span><span class="s2">(</span><span class="s1">File file </span><span class="s2">: </span><span class="s1">arquivos</span><span class="s2">) </span><span class="s3">// mostra arquivos na pasta</span>
+                <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s1">file</span><span class="s2">.</span><span class="s1">getName</span><span class="s2">());</span>
+
+            <span class="s3">// que palavra você quer encontrar no arquivo</span>
+            <span class="s1">Scanner lerPalavra </span><span class="s2">= </span><span class="s0">new </span><span class="s1">Scanner</span><span class="s2">(</span><span class="s1">System</span><span class="s2">.</span><span class="s1">in</span><span class="s2">);</span>
+            <span class="s1">String palavra </span><span class="s2">= </span><span class="s1">JOptionPane</span><span class="s2">.</span><span class="s1">showInputDialog</span><span class="s2">(</span><span class="s0">null</span><span class="s2">, </span><span class="s4">&quot;Que palavra você quer encontrar?&quot;</span><span class="s2">);</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Ok, você deseja encontrar arquivos que tenham a palavra '&quot; </span><span class="s2">+ </span><span class="s1">palavra </span><span class="s2">+ </span><span class="s4">&quot;'.&quot;</span><span class="s2">);</span>
+
+            <span class="s1">String</span><span class="s2">[] </span><span class="s1">extensoesValidas </span><span class="s2">= {</span><span class="s4">&quot;.java&quot;</span><span class="s2">, </span><span class="s4">&quot;.cpp&quot;</span><span class="s2">, </span><span class="s4">&quot;.py&quot;</span><span class="s2">, </span><span class="s4">&quot;.js&quot;</span><span class="s2">}; </span><span class="s3">// extensoes permitidas</span>
+            <span class="s1">String</span><span class="s2">[] </span><span class="s1">arquivosComPalavra </span><span class="s2">= </span><span class="s0">new </span><span class="s1">String</span><span class="s2">[</span><span class="s1">arquivos</span><span class="s2">.</span><span class="s1">length</span><span class="s2">]; </span><span class="s3">// armazena arquivos que tem a palavra</span>
+            <span class="s0">int </span><span class="s1">i </span><span class="s2">= </span><span class="s5">0</span><span class="s2">;</span>
+
+            <span class="s0">for </span><span class="s2">(</span><span class="s1">File file </span><span class="s2">: </span><span class="s1">arquivos</span><span class="s2">) {</span>
+                <span class="s0">if </span><span class="s2">(</span><span class="s1">file</span><span class="s2">.</span><span class="s1">isFile</span><span class="s2">()) {</span>
+                    <span class="s1">String nome </span><span class="s2">= </span><span class="s1">file</span><span class="s2">.</span><span class="s1">getName</span><span class="s2">().</span><span class="s1">toLowerCase</span><span class="s2">();</span>
+
+                    <span class="s3">// arquivo tem uma das extensoes?</span>
+                    <span class="s0">boolean </span><span class="s1">extensaoValida </span><span class="s2">= </span><span class="s0">false</span><span class="s2">;</span>
+                    <span class="s0">for </span><span class="s2">(</span><span class="s1">String ext </span><span class="s2">: </span><span class="s1">extensoesValidas</span><span class="s2">) {</span>
+                        <span class="s0">if </span><span class="s2">(</span><span class="s1">nome</span><span class="s2">.</span><span class="s1">endsWith</span><span class="s2">(</span><span class="s1">ext</span><span class="s2">)) {</span>
+                            <span class="s1">extensaoValida </span><span class="s2">= </span><span class="s0">true</span><span class="s2">;</span>
+                            <span class="s0">break</span><span class="s2">;</span>
+                        <span class="s2">}</span>
+                    <span class="s2">}</span>
+                    <span class="s0">if </span><span class="s2">(</span><span class="s1">extensaoValida</span><span class="s2">) {</span>
+                        <span class="s0">try </span><span class="s2">(</span><span class="s1">BufferedReader br </span><span class="s2">= </span><span class="s0">new </span><span class="s1">BufferedReader</span><span class="s2">(</span><span class="s0">new </span><span class="s1">FileReader</span><span class="s2">(</span><span class="s1">file</span><span class="s2">))) {</span>
+                            <span class="s1">String linha</span><span class="s2">;</span>
+                            <span class="s0">while </span><span class="s2">((</span><span class="s1">linha </span><span class="s2">= </span><span class="s1">br</span><span class="s2">.</span><span class="s1">readLine</span><span class="s2">()) != </span><span class="s0">null</span><span class="s2">) {</span>
+                                <span class="s0">if </span><span class="s2">(</span><span class="s1">linha</span><span class="s2">.</span><span class="s1">contains</span><span class="s2">(</span><span class="s1">palavra</span><span class="s2">)) {</span>
+                                    <span class="s1">arquivosComPalavra</span><span class="s2">[</span><span class="s1">i</span><span class="s2">] = </span><span class="s1">file</span><span class="s2">.</span><span class="s1">getName</span><span class="s2">();</span>
+                                    <span class="s1">i</span><span class="s2">++;</span>
+                                    <span class="s0">break</span><span class="s2">;</span>
+                                <span class="s2">}</span>
+                            <span class="s2">}</span>
+                        <span class="s2">}</span>
+                        <span class="s0">catch </span><span class="s2">(</span><span class="s1">Exception e</span><span class="s2">){</span>
+                            <span class="s1">System</span><span class="s2">.</span><span class="s1">err</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Problemas: &quot; </span><span class="s2">+</span><span class="s1">e</span><span class="s2">.</span><span class="s1">toString</span><span class="s2">());</span>
+                        <span class="s2">}</span>
+                    <span class="s2">}</span>
+                <span class="s2">}</span>
+            <span class="s2">}</span>
+
+            <span class="s3">// exibe os arquivos que tem a palavra</span>
+            <span class="s0">if </span><span class="s2">(</span><span class="s1">i </span><span class="s2">== </span><span class="s5">0</span><span class="s2">)</span>
+                <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Nenhum arquivo contém a palavra '&quot; </span><span class="s2">+ </span><span class="s1">palavra </span><span class="s2">+ </span><span class="s4">&quot;'.&quot;</span><span class="s2">);</span>
+            <span class="s0">else</span>
+            <span class="s2">{</span>
+                <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;A palavra '&quot; </span><span class="s2">+ </span><span class="s1">palavra </span><span class="s2">+ </span><span class="s4">&quot;' foi encontrada nos seguintes arquivos:&quot;</span><span class="s2">);</span>
+                <span class="s0">for </span><span class="s2">(</span><span class="s0">int </span><span class="s1">j </span><span class="s2">= </span><span class="s5">0</span><span class="s2">; </span><span class="s1">j </span><span class="s2">&lt; </span><span class="s1">i</span><span class="s2">; </span><span class="s1">j</span><span class="s2">++)</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;- &quot; </span><span class="s2">+ </span><span class="s1">arquivosComPalavra</span><span class="s2">[</span><span class="s1">j</span><span class="s2">]);</span>
+            <span class="s2">}</span>
+        <span class="s2">}</span>
+        <span class="s0">else</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;A seleção não é uma pasta válida.&quot;</span><span class="s2">);</span>
+    <span class="s2">}</span>
+<span class="s2">}</span></pre>
+</body>
+</html>

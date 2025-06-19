@@ -1,0 +1,74 @@
+<html>
+<head>
+<title>MainContaCorrente.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #6aab73;}
+.s4 { color: #2aacb8;}
+.s5 { color: #7a7e85;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+MainContaCorrente.java</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">javax</span><span class="s2">.</span><span class="s1">swing</span><span class="s2">.</span><span class="s1">JOptionPane</span><span class="s2">;</span>
+
+<span class="s0">public class </span><span class="s1">MainContaCorrente </span><span class="s2">{</span>
+    <span class="s0">public static void </span><span class="s1">main</span><span class="s2">(</span><span class="s1">String</span><span class="s2">[] </span><span class="s1">args</span><span class="s2">) {</span>
+        <span class="s1">ContaCorrente conta </span><span class="s2">= </span><span class="s0">new </span><span class="s1">ContaCorrente</span><span class="s2">(</span><span class="s3">&quot;12345-6&quot;</span><span class="s2">, </span><span class="s4">1000.0</span><span class="s2">, </span><span class="s0">true</span><span class="s2">, </span><span class="s4">500.0</span><span class="s2">);</span>
+
+        <span class="s1">String opcao</span><span class="s2">;</span>
+        <span class="s0">do </span><span class="s2">{</span>
+            <span class="s1">opcao </span><span class="s2">= </span><span class="s1">JOptionPane</span><span class="s2">.</span><span class="s1">showInputDialog</span><span class="s2">(</span><span class="s3">&quot;Saldo atual: R$&quot; </span><span class="s2">+ </span><span class="s1">conta</span><span class="s2">.</span><span class="s1">consultarSaldo</span><span class="s2">() + </span><span class="s3">&quot;</span><span class="s0">\n</span><span class="s3">Limite: R$&quot; </span><span class="s2">+ </span><span class="s1">conta</span><span class="s2">.</span><span class="s1">getLimite</span><span class="s2">() + </span><span class="s3">&quot;</span><span class="s0">\n</span><span class="s3">Conta especial: &quot; </span><span class="s2">+ (</span><span class="s1">conta</span><span class="s2">.</span><span class="s1">isEspecial</span><span class="s2">() ? </span><span class="s3">&quot;Sim&quot; </span><span class="s2">: </span><span class="s3">&quot;Não&quot;</span><span class="s2">) + </span><span class="s3">&quot;</span><span class="s0">\n</span><span class="s3">Usando cheque especial? &quot; </span><span class="s2">+ (</span><span class="s1">conta</span><span class="s2">.</span><span class="s1">verificarEspecial</span><span class="s2">() ? </span><span class="s3">&quot;Sim&quot; </span><span class="s2">: </span><span class="s3">&quot;Não&quot;</span><span class="s2">) + </span><span class="s3">&quot;</span><span class="s0">\n\n</span><span class="s3">Escolha uma opção:&quot; </span><span class="s2">+ </span><span class="s3">&quot;</span><span class="s0">\n</span><span class="s3">1 - sacar&quot; </span><span class="s2">+ </span><span class="s3">&quot;</span><span class="s0">\n</span><span class="s3">2 - depositar&quot; </span><span class="s2">+ </span><span class="s3">&quot;</span><span class="s0">\n</span><span class="s3">3 - consultar saldo&quot; </span><span class="s2">+ </span><span class="s3">&quot;</span><span class="s0">\n</span><span class="s3">4 - sair&quot;</span><span class="s2">);</span>
+
+            <span class="s0">if </span><span class="s2">(</span><span class="s1">opcao </span><span class="s2">== </span><span class="s0">null </span><span class="s2">|| </span><span class="s1">opcao</span><span class="s2">.</span><span class="s1">equals</span><span class="s2">(</span><span class="s3">&quot;4&quot;</span><span class="s2">)) {</span>
+                <span class="s0">break</span><span class="s2">;</span>
+            <span class="s2">}</span>
+
+            <span class="s0">switch </span><span class="s2">(</span><span class="s1">opcao</span><span class="s2">) {</span>
+                <span class="s0">case </span><span class="s3">&quot;1&quot;</span><span class="s2">: </span><span class="s5">/* saque */</span>
+                    <span class="s1">String valorSaqueStr </span><span class="s2">= </span><span class="s1">JOptionPane</span><span class="s2">.</span><span class="s1">showInputDialog</span><span class="s2">(</span><span class="s3">&quot;Digite o valor para saque:&quot;</span><span class="s2">);</span>
+                    <span class="s0">try </span><span class="s2">{</span>
+                        <span class="s0">double </span><span class="s1">valorSaque </span><span class="s2">= </span><span class="s1">Double</span><span class="s2">.</span><span class="s1">parseDouble</span><span class="s2">(</span><span class="s1">valorSaqueStr</span><span class="s2">);</span>
+                        <span class="s0">if </span><span class="s2">(</span><span class="s1">conta</span><span class="s2">.</span><span class="s1">sacar</span><span class="s2">(</span><span class="s1">valorSaque</span><span class="s2">)) {</span>
+                            <span class="s1">JOptionPane</span><span class="s2">.</span><span class="s1">showMessageDialog</span><span class="s2">(</span><span class="s0">null</span><span class="s2">, </span><span class="s3">&quot;Saque realizado com sucesso!&quot;</span><span class="s2">);</span>
+                        <span class="s2">} </span><span class="s0">else </span><span class="s2">{</span>
+                            <span class="s1">JOptionPane</span><span class="s2">.</span><span class="s1">showMessageDialog</span><span class="s2">(</span><span class="s0">null</span><span class="s2">, </span><span class="s3">&quot;Não foi possível realizar o saque. Saldo insuficiente.&quot;</span><span class="s2">);</span>
+                        <span class="s2">}</span>
+                    <span class="s2">} </span><span class="s0">catch </span><span class="s2">(</span><span class="s1">NumberFormatException e</span><span class="s2">) {</span>
+                        <span class="s1">JOptionPane</span><span class="s2">.</span><span class="s1">showMessageDialog</span><span class="s2">(</span><span class="s0">null</span><span class="s2">, </span><span class="s3">&quot;Valor inválido! Digite um número.&quot;</span><span class="s2">);</span>
+                    <span class="s2">}</span>
+                    <span class="s0">break</span><span class="s2">;</span>
+
+                <span class="s0">case </span><span class="s3">&quot;2&quot;</span><span class="s2">: </span><span class="s5">/* deposito */</span>
+                    <span class="s1">String valorDepositoStr </span><span class="s2">= </span><span class="s1">JOptionPane</span><span class="s2">.</span><span class="s1">showInputDialog</span><span class="s2">(</span><span class="s3">&quot;Digite o valor para depósito:&quot;</span><span class="s2">);</span>
+                    <span class="s0">try </span><span class="s2">{</span>
+                        <span class="s0">double </span><span class="s1">valorDeposito </span><span class="s2">= </span><span class="s1">Double</span><span class="s2">.</span><span class="s1">parseDouble</span><span class="s2">(</span><span class="s1">valorDepositoStr</span><span class="s2">);</span>
+                        <span class="s1">conta</span><span class="s2">.</span><span class="s1">depositar</span><span class="s2">(</span><span class="s1">valorDeposito</span><span class="s2">);</span>
+                        <span class="s1">JOptionPane</span><span class="s2">.</span><span class="s1">showMessageDialog</span><span class="s2">(</span><span class="s0">null</span><span class="s2">, </span><span class="s3">&quot;Depósito realizado com sucesso!&quot;</span><span class="s2">);</span>
+                    <span class="s2">} </span><span class="s0">catch </span><span class="s2">(</span><span class="s1">NumberFormatException e</span><span class="s2">) {</span>
+                        <span class="s1">JOptionPane</span><span class="s2">.</span><span class="s1">showMessageDialog</span><span class="s2">(</span><span class="s0">null</span><span class="s2">, </span><span class="s3">&quot;Valor inválido! Digite um número.&quot;</span><span class="s2">);</span>
+                    <span class="s2">}</span>
+                    <span class="s0">break</span><span class="s2">;</span>
+
+                <span class="s0">case </span><span class="s3">&quot;3&quot;</span><span class="s2">: </span><span class="s5">/* saldo */</span>
+                    <span class="s1">JOptionPane</span><span class="s2">.</span><span class="s1">showMessageDialog</span><span class="s2">(</span><span class="s0">null</span><span class="s2">, </span><span class="s3">&quot;Saldo atual: R$&quot; </span><span class="s2">+ </span><span class="s1">conta</span><span class="s2">.</span><span class="s1">consultarSaldo</span><span class="s2">() + </span><span class="s3">&quot;</span><span class="s0">\n</span><span class="s3">Limite disponível: R$&quot; </span><span class="s2">+ (</span><span class="s1">conta</span><span class="s2">.</span><span class="s1">isEspecial</span><span class="s2">() ? </span><span class="s1">conta</span><span class="s2">.</span><span class="s1">getLimite</span><span class="s2">() : </span><span class="s3">&quot;0.00&quot;</span><span class="s2">) + </span><span class="s3">&quot;</span><span class="s0">\n</span><span class="s3">Saldo + limite: R$&quot; </span><span class="s2">+ (</span><span class="s1">conta</span><span class="s2">.</span><span class="s1">consultarSaldo</span><span class="s2">() + (</span><span class="s1">conta</span><span class="s2">.</span><span class="s1">isEspecial</span><span class="s2">() ? </span><span class="s1">conta</span><span class="s2">.</span><span class="s1">getLimite</span><span class="s2">() : </span><span class="s4">0</span><span class="s2">)));</span>
+                    <span class="s0">break</span><span class="s2">;</span>
+
+                <span class="s0">default</span><span class="s2">:</span>
+                    <span class="s1">JOptionPane</span><span class="s2">.</span><span class="s1">showMessageDialog</span><span class="s2">(</span><span class="s0">null</span><span class="s2">, </span><span class="s3">&quot;Opção inválida!&quot;</span><span class="s2">);</span>
+                    <span class="s0">break</span><span class="s2">;</span>
+            <span class="s2">}</span>
+        <span class="s2">} </span><span class="s0">while </span><span class="s2">(!</span><span class="s1">opcao</span><span class="s2">.</span><span class="s1">equals</span><span class="s2">(</span><span class="s3">&quot;4&quot;</span><span class="s2">));</span>
+
+        <span class="s1">JOptionPane</span><span class="s2">.</span><span class="s1">showMessageDialog</span><span class="s2">(</span><span class="s0">null</span><span class="s2">, </span><span class="s3">&quot;obrigado pela preferencia :)&quot;</span><span class="s2">);</span>
+    <span class="s2">}</span>
+<span class="s2">}</span></pre>
+</body>
+</html>
